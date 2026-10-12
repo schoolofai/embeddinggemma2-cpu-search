@@ -1,0 +1,5 @@
+text        params= 271.0M  fp32 weights≈ 1084 MB  load= 3.03s  RSS + 1421 MB (peak 2038 MB)  text query median 76.8 ms
+text+image  params= 438.8M  fp32 weights≈ 1755 MB  load= 3.54s  RSS + 2096 MB (peak 3024 MB)  text query median 128.1 ms
+text+audio  params= 576.6M  fp32 weights≈ 2306 MB  load= 3.97s  RSS + 2641 MB (peak 3837 MB)  text query median 100.3 ms
+full        params= 744.4M  fp32 weights≈ 2977 MB  load= 4.31s  RSS + 3314 MB (peak 4822 MB)  text query median 107.0 ms
+[saved results/configs.json]

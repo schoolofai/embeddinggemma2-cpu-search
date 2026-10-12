@@ -1,0 +1,5 @@
+.venv/
+.hf-cache/
+data/images/
+data/media/
+__pycache__/

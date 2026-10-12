@@ -1,0 +1,9 @@
+float32   RSS +1422 MB | NaN rows 0/35 | 35 docs 9.04s | query median 103.6 ms | cosine vs fp32 mean 1.0 min 1.0
+bfloat16  RSS +349 MB | NaN rows 0/35 | 35 docs 5.46s | query median 74.4 ms | cosine vs fp32 mean 0.99958 min 0.99849
+float16   RSS +879 MB | NaN rows 0/35 | 35 docs 6.29s | query median 85.0 ms | cosine vs fp32 mean 1.0 min 1.0
+
+Video (29.7 s clip, text+image config) by max_frames:
+  max_frames=4: {'seconds': 10.3, 'scores': {'a cat dozing': 0.695, 'a cat playing with a small lizard': 0.612, 'a sports car racing on a highway': 0.445}}
+  max_frames=8: {'seconds': 15.0, 'scores': {'a cat dozing': 0.702, 'a cat playing with a small lizard': 0.623, 'a sports car racing on a highway': 0.458}}
+  max_frames=32: {'seconds': 55.4, 'scores': {'a cat dozing': 0.688, 'a cat playing with a small lizard': 0.603, 'a sports car racing on a highway': 0.44}}
+[saved results/precision_and_video.json]

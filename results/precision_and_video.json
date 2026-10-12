@@ -1,0 +1,72 @@
+{
+ "precision": [
+  {
+   "dtype": "float32",
+   "rss_delta_mb": 1422,
+   "nan_rows": 0,
+   "index_35_docs_s": 9.04,
+   "query": {
+    "median_ms": 103.6,
+    "min_ms": 69.4,
+    "max_ms": 228.7,
+    "n": 10
+   },
+   "cosine_vs_fp32_mean": 1.0,
+   "cosine_vs_fp32_min": 1.0
+  },
+  {
+   "dtype": "bfloat16",
+   "rss_delta_mb": 349,
+   "nan_rows": 0,
+   "index_35_docs_s": 5.46,
+   "query": {
+    "median_ms": 74.4,
+    "min_ms": 43.9,
+    "max_ms": 489.5,
+    "n": 10
+   },
+   "cosine_vs_fp32_mean": 0.99958,
+   "cosine_vs_fp32_min": 0.99849
+  },
+  {
+   "dtype": "float16",
+   "rss_delta_mb": 879,
+   "nan_rows": 0,
+   "index_35_docs_s": 6.29,
+   "query": {
+    "median_ms": 85.0,
+    "min_ms": 62.4,
+    "max_ms": 164.8,
+    "n": 10
+   },
+   "cosine_vs_fp32_mean": 1.0,
+   "cosine_vs_fp32_min": 1.0
+  }
+ ],
+ "video_frames": {
+  "4": {
+   "seconds": 10.3,
+   "scores": {
+    "a cat dozing": 0.695,
+    "a cat playing with a small lizard": 0.612,
+    "a sports car racing on a highway": 0.445
+   }
+  },
+  "8": {
+   "seconds": 15.0,
+   "scores": {
+    "a cat dozing": 0.702,
+    "a cat playing with a small lizard": 0.623,
+    "a sports car racing on a highway": 0.458
+   }
+  },
+  "32": {
+   "seconds": 55.4,
+   "scores": {
+    "a cat dozing": 0.688,
+    "a cat playing with a small lizard": 0.603,
+    "a sports car racing on a highway": 0.44
+   }
+  }
+ }
+}

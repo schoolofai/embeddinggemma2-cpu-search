@@ -1,0 +1,220 @@
+{
+ "model_info": {
+  "config": "full",
+  "params": 744371488,
+  "param_mb_fp32": 2977,
+  "load_seconds": 3.96,
+  "rss_before_load_mb": 488,
+  "rss_after_load_mb": 3804,
+  "threads": 8,
+  "torch": "2.14.1+cpu"
+ },
+ "image_ms_by_budget": {
+  "70": {
+   "median_ms": 693.9,
+   "min_ms": 582.3,
+   "max_ms": 1055.3,
+   "n": 10
+  },
+  "280": {
+   "median_ms": 3359.8,
+   "min_ms": 3024.6,
+   "max_ms": 3572.8,
+   "n": 10
+  },
+  "560": {
+   "median_ms": 7431.1,
+   "min_ms": 7083.0,
+   "max_ms": 8872.4,
+   "n": 10
+  }
+ },
+ "text_to_image_hit@1_by_budget": {
+  "70": 1.0,
+  "280": 1.0,
+  "560": 1.0
+ },
+ "image_to_article_hit@1": 1.0,
+ "google_goldengate": {
+  "San Francisco": 0.6413345336914062,
+  "a cute cat walking": 0.5348517894744873,
+  "a friendly dog sitting in the grass": 0.5089353919029236
+ },
+ "audio": {
+  "seconds": 3.0763125,
+  "embed": {
+   "median_ms": 948.8,
+   "min_ms": 926.0,
+   "max_ms": 967.1,
+   "n": 3
+  },
+  "scores": {
+   "a person speaking English": 0.6794697046279907,
+   "random static white noise": 0.6511666774749756,
+   "Roses are red, violets are blue.": 0.8762638568878174,
+   "a dog barking": 0.6498091816902161,
+   "a jazz saxophone solo": 0.634591817855835
+  }
+ },
+ "video": {
+  "embed": {
+   "median_ms": 47312.3,
+   "min_ms": 47312.3,
+   "max_ms": 47312.3,
+   "n": 1
+  },
+  "scores": {
+   "a cat dozing": 0.6877392530441284,
+   "a cat playing with a small lizard": 0.6027952432632446,
+   "a sports car racing on a highway": 0.4404354691505432,
+   "a red panda on a branch": 0.5446377992630005
+  }
+ },
+ "mixed_search": [
+  {
+   "query": "a sleepy cat",
+   "top4": [
+    [
+     "video",
+     "cat_dozing.mp4",
+     0.7
+    ],
+    [
+     "photo",
+     "Red_panda.jpg",
+     0.651
+    ],
+    [
+     "text",
+     "Red panda",
+     0.647
+    ],
+    [
+     "text",
+     "Octopus",
+     0.612
+    ]
+   ]
+  },
+  {
+   "query": "someone reciting a short poem",
+   "top4": [
+    [
+     "text",
+     "Rabindranath Tagore",
+     0.625
+    ],
+    [
+     "audio",
+     "roses-are.wav (speech)",
+     0.607
+    ],
+    [
+     "text",
+     "Bicycle",
+     0.598
+    ],
+    [
+     "video",
+     "cat_dozing.mp4",
+     0.593
+    ]
+   ]
+  },
+  {
+   "query": "red panda",
+   "top4": [
+    [
+     "text",
+     "Red panda",
+     0.836
+    ],
+    [
+     "photo",
+     "Red_panda.jpg",
+     0.788
+    ],
+    [
+     "text",
+     "Bengal tiger",
+     0.643
+    ],
+    [
+     "text",
+     "Ramen",
+     0.629
+    ]
+   ]
+  },
+  {
+   "query": "the tallest mountain on Earth",
+   "top4": [
+    [
+     "text",
+     "Mount Everest",
+     0.801
+    ],
+    [
+     "photo",
+     "Volcano.jpg",
+     0.662
+    ],
+    [
+     "text",
+     "Volcano",
+     0.652
+    ],
+    [
+     "text",
+     "Great Barrier Reef",
+     0.652
+    ]
+   ]
+  },
+  {
+   "query": "a lighthouse in the sea",
+   "top4": [
+    [
+     "photo",
+     "Lighthouse.jpg",
+     0.775
+    ],
+    [
+     "text",
+     "Lighthouse",
+     0.764
+    ],
+    [
+     "text",
+     "Submarine",
+     0.649
+    ],
+    [
+     "photo",
+     "Volcano.jpg",
+     0.631
+    ]
+   ]
+  }
+ ],
+ "matryoshka": {
+  "768": {
+   "text_to_image_hit@1": 1.0,
+   "image_to_article_hit@1": 1.0
+  },
+  "512": {
+   "text_to_image_hit@1": 1.0,
+   "image_to_article_hit@1": 1.0
+  },
+  "256": {
+   "text_to_image_hit@1": 1.0,
+   "image_to_article_hit@1": 1.0
+  },
+  "128": {
+   "text_to_image_hit@1": 1.0,
+   "image_to_article_hit@1": 1.0
+  }
+ },
+ "rss_end_mb": 3965,
+ "peak_rss_mb": 5748
+}

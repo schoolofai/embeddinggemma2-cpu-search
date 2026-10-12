@@ -1,0 +1,12 @@
+# Install CPU PyTorch first (avoids pulling CUDA wheels):
+#   pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchcodec
+# then:
+sentence-transformers>=6.1.0   # model card / dev guide: v6.1.0 or later
+transformers>=5.19.0
+huggingface_hub
+numpy
+pillow
+psutil
+soundfile
+# versions actually used on 8 Oct 2026: torch 2.14.1+cpu, torchvision 0.29.1+cpu, torchcodec 0.17.0+cpu,
+# sentence-transformers 6.1.0, transformers 5.19.0, huggingface_hub 1.33.0, numpy 2.5.3, Python 3.13.5

@@ -1,0 +1,61 @@
+Loaded 744M params (full multimodal) in 3.96s; RSS 488 -> 3804 MB
+image embed @   70 vision tokens: median 693.9 ms/image (n=10)
+image embed @  280 vision tokens: median 3359.8 ms/image (n=10)
+image embed @  560 vision tokens: median 7431.1 ms/image (n=10)
+
+=== Text -> image (10 photos) ===
+Q: green light curtains in a winter night sky
+   0.722 Aurora.jpg   0.560 Hot_air_balloon.jpg
+Q: a big striped cat walking through dry grass
+   0.733 Bengal_tiger.jpg   0.589 Octopus.jpg
+Q: an old black bike parked on a street
+   0.782 Bicycle.jpg   0.511 Red_panda.jpg
+Q: a red suspension bridge over the water
+   0.753 Golden_Gate_Bridge.jpg   0.627 Lighthouse.jpg
+text->image hit@1 by vision budget: {70: 1.0, 280: 1.0, 560: 1.0}
+
+=== Photo -> which of 35 Wikipedia articles? ===
+Aurora.jpg               -> Aurora               0.751  (2nd Rainbow 0.671)
+Bengal_tiger.jpg         -> Bengal tiger         0.779  (2nd Rice 0.641)
+Bicycle.jpg              -> Bicycle              0.684  (2nd Hot air balloon 0.614)
+Golden_Gate_Bridge.jpg   -> Golden Gate Bridge   0.795  (2nd Great Barrier Reef 0.633)
+Hot_air_balloon.jpg      -> Hot air balloon      0.730  (2nd Kite 0.638)
+Lighthouse.jpg           -> Lighthouse           0.722  (2nd Rainbow 0.651)
+Octopus.jpg              -> Octopus              0.780  (2nd Volcano 0.663)
+Ramen.jpg                -> Ramen                0.773  (2nd Sourdough 0.618)
+Red_panda.jpg            -> Red panda            0.814  (2nd Bengal tiger 0.640)
+Volcano.jpg              -> Volcano              0.733  (2nd Great Barrier Reef 0.661)
+image->article hit@1: 1.0
+
+Google sample GoldenGate.png vs {'San Francisco': np.float64(0.641), 'a cute cat walking': np.float64(0.535), 'a friendly dog sitting in the grass': np.float64(0.509)}
+
+Audio roses-are.wav (3.1s) embed median 948.8 ms:
+   0.876  Roses are red, violets are blue.
+   0.679  a person speaking English
+   0.651  random static white noise
+   0.650  a dog barking
+   0.635  a jazz saxophone solo
+
+Video cat_dozing.mp4 embed median 47312.3 ms:
+   0.688  a cat dozing
+   0.603  a cat playing with a small lizard
+   0.545  a red panda on a branch
+   0.440  a sports car racing on a highway
+
+=== One search box: 35 texts + 10 photos + 1 speech clip + 1 video ===
+Q: a sleepy cat
+   0.700 [video] cat_dozing.mp4 | 0.651 [photo] Red_panda.jpg | 0.647 [text] Red panda | 0.612 [text] Octopus
+Q: someone reciting a short poem
+   0.625 [text] Rabindranath Tagore | 0.607 [audio] roses-are.wav (speech) | 0.598 [text] Bicycle | 0.593 [video] cat_dozing.mp4
+Q: red panda
+   0.836 [text] Red panda | 0.788 [photo] Red_panda.jpg | 0.643 [text] Bengal tiger | 0.629 [text] Ramen
+Q: the tallest mountain on Earth
+   0.801 [text] Mount Everest | 0.662 [photo] Volcano.jpg | 0.652 [text] Volcano | 0.652 [text] Great Barrier Reef
+Q: a lighthouse in the sea
+   0.775 [photo] Lighthouse.jpg | 0.764 [text] Lighthouse | 0.649 [text] Submarine | 0.631 [photo] Volcano.jpg
+
+Matryoshka on cross-modal tasks: {768: {'text_to_image_hit@1': 1.0, 'image_to_article_hit@1': 1.0}, 512: {'text_to_image_hit@1': 1.0, 'image_to_article_hit@1': 1.0}, 256: {'text_to_image_hit@1': 1.0, 'image_to_article_hit@1': 1.0}, 128: {'text_to_image_hit@1': 1.0, 'image_to_article_hit@1': 1.0}}
+
+RSS end 3965 MB, peak 5748 MB
+
+[saved results/multimodal.json]

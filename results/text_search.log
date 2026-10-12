@@ -1,0 +1,48 @@
+Loaded 271M params (text-only config) in 3.25s; RSS 448 -> 1869 MB
+Indexed 35 docs (4591 tokens) in 6.49s = 185 ms/doc batched; single doc median 233.6 ms
+Single query embedding: median 96.8 ms (n=20)
+
+=== Query -> top 3 (cosine) ===
+
+Q: why does the night sky glow green near the poles
+   0.755  Aurora
+   0.631  Rainbow
+   0.622  Solar eclipse
+
+Q: instrument that needs an amplifier to be heard
+   0.749  Electric guitar
+   0.657  Jazz
+   0.620  Vaccine
+
+Q: a jab that trains your immune system
+   0.686  Vaccine
+   0.645  Tea
+   0.622  Penicillin
+
+Q: বাঙালি কবি যিনি নোবেল পুরস্কার পেয়েছিলেন
+   0.781  Rabindranath Tagore
+   0.594  Durga Puja
+   0.570  Bengal tiger
+
+=== Keyword (BM25) vs EmbeddingGemma 2 ===
+english        BM25 hit@1=0.83   EG2 hit@1=1.00  (MRR 1.00)
+cross_lingual  BM25 hit@1=0.11   EG2 hit@1=1.00  (MRR 1.00)
+EG2 top-1 misses: none
+
+=== Task prefixes === {'with_prefixes': {'hit@1': 1.0, 'hit@3': 1.0, 'mrr': 1.0, 'mean_margin': np.float32(0.1165)}, 'no_prefixes': {'hit@1': 1.0, 'hit@3': 1.0, 'mrr': 1.0, 'mean_margin': np.float32(0.1058)}}
+
+Fact-level index: 159 sentences embedded in 9.4s (59 ms/sentence)
+fact-level BM25 {'hit@1': 0.833, 'hit@3': 0.958, 'mrr': 0.906, 'mean_margin': np.float64(5.8257)} 
+fact-level EG2  {'hit@1': 0.958, 'hit@3': 1.0, 'mrr': 0.979, 'mean_margin': np.float32(0.0773)}
+  miss: ('how many pieces each player starts with', 'The players, referred to as "White" and "Black", each control sixteen ', 'Chess is a board game for two players, played on a square board consis')
+
+=== Matryoshka truncation (same model, keep first d dims, re-normalise) ===
+ 768d  EN hit@1=1.00 MRR=1.000 margin=0.116 | X-lingual hit@1=1.00 | FACT hit@1=0.96 MRR=0.979 | 3072 B/vec | search 200k vecs 10.0 ms
+ 512d  EN hit@1=1.00 MRR=1.000 margin=0.119 | X-lingual hit@1=1.00 | FACT hit@1=0.96 MRR=0.979 | 2048 B/vec | search 200k vecs 7.2 ms
+ 256d  EN hit@1=1.00 MRR=1.000 margin=0.119 | X-lingual hit@1=1.00 | FACT hit@1=0.96 MRR=0.979 | 1024 B/vec | search 200k vecs 3.7 ms
+ 128d  EN hit@1=1.00 MRR=1.000 margin=0.072 | X-lingual hit@1=1.00 | FACT hit@1=0.96 MRR=0.979 | 512 B/vec | search 200k vecs 1.1 ms
+Query embed time with truncate_dim=128: median 100.4 ms (vs 96.8 ms at 768) -> truncation saves storage + search time, not embedding time
+
+RSS end 2614 MB, peak 3244 MB (incl. the 200k x 768 timing matrix ≈ 614 MB)
+
+[saved results/text_search.json]

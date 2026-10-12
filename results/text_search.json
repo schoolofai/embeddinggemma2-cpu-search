@@ -1,0 +1,296 @@
+{
+ "model_info": {
+  "config": "text",
+  "params": 271002624,
+  "param_mb_fp32": 1084,
+  "load_seconds": 3.25,
+  "rss_before_load_mb": 448,
+  "rss_after_load_mb": 1869,
+  "threads": 8,
+  "torch": "2.14.1+cpu"
+ },
+ "n_docs": 35,
+ "doc_tokens": 4591,
+ "index_seconds": 6.49,
+ "ms_per_doc_batched": 185.4,
+ "single_doc": {
+  "median_ms": 233.6,
+  "min_ms": 181.4,
+  "max_ms": 393.2,
+  "n": 10
+ },
+ "single_query": {
+  "median_ms": 96.8,
+  "min_ms": 65.8,
+  "max_ms": 284.1,
+  "n": 20
+ },
+ "single_query_trunc128": {
+  "median_ms": 100.4,
+  "min_ms": 70.8,
+  "max_ms": 298.1,
+  "n": 20
+ },
+ "showcase": [
+  {
+   "query": "why does the night sky glow green near the poles",
+   "top3": [
+    [
+     "Aurora",
+     0.755
+    ],
+    [
+     "Rainbow",
+     0.631
+    ],
+    [
+     "Solar eclipse",
+     0.622
+    ]
+   ]
+  },
+  {
+   "query": "instrument that needs an amplifier to be heard",
+   "top3": [
+    [
+     "Electric guitar",
+     0.749
+    ],
+    [
+     "Jazz",
+     0.657
+    ],
+    [
+     "Vaccine",
+     0.62
+    ]
+   ]
+  },
+  {
+   "query": "a jab that trains your immune system",
+   "top3": [
+    [
+     "Vaccine",
+     0.686
+    ],
+    [
+     "Tea",
+     0.645
+    ],
+    [
+     "Penicillin",
+     0.622
+    ]
+   ]
+  },
+  {
+   "query": "বাঙালি কবি যিনি নোবেল পুরস্কার পেয়েছিলেন",
+   "top3": [
+    [
+     "Rabindranath Tagore",
+     0.781
+    ],
+    [
+     "Durga Puja",
+     0.594
+    ],
+    [
+     "Bengal tiger",
+     0.57
+    ]
+   ]
+  }
+ ],
+ "retrieval": {
+  "english": {
+   "bm25": {
+    "hit@1": 0.829,
+    "hit@3": 0.886,
+    "mrr": 0.864,
+    "mean_margin": 5.4595
+   },
+   "embeddinggemma2_768": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.11649999767541885
+   }
+  },
+  "cross_lingual": {
+   "bm25": {
+    "hit@1": 0.111,
+    "hit@3": 0.222,
+    "mrr": 0.19,
+    "mean_margin": -0.9891
+   },
+   "embeddinggemma2_768": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.10620000213384628
+   }
+  },
+  "prefix_ablation": {
+   "with_prefixes": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.11649999767541885
+   },
+   "no_prefixes": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.10580000281333923
+   }
+  },
+  "fact_level": {
+   "n_sentences": 159,
+   "bm25": {
+    "hit@1": 0.833,
+    "hit@3": 0.958,
+    "mrr": 0.906,
+    "mean_margin": 5.8257
+   },
+   "embeddinggemma2_768": {
+    "hit@1": 0.958,
+    "hit@3": 1.0,
+    "mrr": 0.979,
+    "mean_margin": 0.07729999721050262
+   },
+   "misses_768": [
+    [
+     "how many pieces each player starts with",
+     "The players, referred to as \"White\" and \"Black\", each control sixteen ",
+     "Chess is a board game for two players, played on a square board consis"
+    ]
+   ]
+  }
+ },
+ "misses_768": [],
+ "matryoshka": {
+  "768": {
+   "english": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.11649999767541885
+   },
+   "cross_lingual": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.10620000213384628
+   },
+   "fact_level": {
+    "hit@1": 0.958,
+    "hit@3": 1.0,
+    "mrr": 0.979,
+    "mean_margin": 0.07729999721050262
+   },
+   "top1_agrees_with_768": 1.0,
+   "bytes_per_vector_fp32": 3072,
+   "storage_1M_vectors_fp32_mb": 3072,
+   "storage_1M_vectors_bf16_mb": 1536,
+   "brute_force_top10_over_200k_vectors": {
+    "median_ms": 10.0,
+    "min_ms": 8.3,
+    "max_ms": 19.0,
+    "n": 20
+   }
+  },
+  "512": {
+   "english": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.1193000003695488
+   },
+   "cross_lingual": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.10719999670982361
+   },
+   "fact_level": {
+    "hit@1": 0.958,
+    "hit@3": 1.0,
+    "mrr": 0.979,
+    "mean_margin": 0.07639999687671661
+   },
+   "top1_agrees_with_768": 1.0,
+   "bytes_per_vector_fp32": 2048,
+   "storage_1M_vectors_fp32_mb": 2048,
+   "storage_1M_vectors_bf16_mb": 1024,
+   "brute_force_top10_over_200k_vectors": {
+    "median_ms": 7.2,
+    "min_ms": 5.9,
+    "max_ms": 12.1,
+    "n": 20
+   }
+  },
+  "256": {
+   "english": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.11869999766349792
+   },
+   "cross_lingual": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.10559999942779541
+   },
+   "fact_level": {
+    "hit@1": 0.958,
+    "hit@3": 1.0,
+    "mrr": 0.979,
+    "mean_margin": 0.06530000269412994
+   },
+   "top1_agrees_with_768": 1.0,
+   "bytes_per_vector_fp32": 1024,
+   "storage_1M_vectors_fp32_mb": 1024,
+   "storage_1M_vectors_bf16_mb": 512,
+   "brute_force_top10_over_200k_vectors": {
+    "median_ms": 3.7,
+    "min_ms": 2.6,
+    "max_ms": 6.5,
+    "n": 20
+   }
+  },
+  "128": {
+   "english": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.0723000019788742
+   },
+   "cross_lingual": {
+    "hit@1": 1.0,
+    "hit@3": 1.0,
+    "mrr": 1.0,
+    "mean_margin": 0.0722000002861023
+   },
+   "fact_level": {
+    "hit@1": 0.958,
+    "hit@3": 1.0,
+    "mrr": 0.979,
+    "mean_margin": 0.0478999987244606
+   },
+   "top1_agrees_with_768": 1.0,
+   "bytes_per_vector_fp32": 512,
+   "storage_1M_vectors_fp32_mb": 512,
+   "storage_1M_vectors_bf16_mb": 256,
+   "brute_force_top10_over_200k_vectors": {
+    "median_ms": 1.1,
+    "min_ms": 0.9,
+    "max_ms": 18.8,
+    "n": 20
+   }
+  }
+ },
+ "rss_end_mb": 2614,
+ "peak_rss_mb": 3244,
+ "note": "200k-vector search uses random unit vectors purely to time brute-force dot products; quality numbers use the real corpus."
+}
