@@ -1,8 +1,8 @@
 # EmbeddingGemma 2 on a plain CPU: local, offline search over text, photos, speech and video
 
-▶ Video: https://www.youtube.com/watch?v=VIDEO_ID (ProAI Clips)
+▶ Video: https://www.youtube.com/watch?v=NlwMFVB0ibw (ProAI Clips)
 
-Video timestamps below come from the final cut. VIDEO_ID is a placeholder, filled in after upload.
+Video timestamps below come from the final cut.
 
 Google DeepMind's **EmbeddingGemma 2** (released 6 Oct 2026, Apache 2.0) puts text, code, images, video and audio into one 768-number vector space.
 This repo is the exact code from the video. It runs on an ordinary computer: we used Linux, 8 CPU cores, ~15 GB RAM and **no GPU**.
@@ -22,7 +22,7 @@ Works on Linux and macOS. On Windows, use WSL. Your timings will differ from our
 Or step by step:
 
 ### Step 1: install (CPU-only PyTorch + sentence-transformers 6.1+)
-Video: [3:32](https://www.youtube.com/watch?v=VIDEO_ID&t=212s)
+Video: [3:32](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=212s)
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision torchcodec
@@ -31,7 +31,7 @@ python3 -m venv .venv
 Expected: pip ends with `Successfully installed ... sentence-transformers-6.1.x ...`.
 
 ### Step 2: download the weights anonymously (~1.5 GB)
-Video: [3:21](https://www.youtube.com/watch?v=VIDEO_ID&t=201s)
+Video: [3:21](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=201s)
 ```bash
 export HF_HOME="$PWD/.hf-cache" HF_HUB_DISABLE_IMPLICIT_TOKEN=1
 .venv/bin/python -c "from huggingface_hub import snapshot_download; print(snapshot_download('google/embeddinggemma-2', token=False))"
@@ -46,7 +46,7 @@ Implementation: `fetch_data.py` pulls 35 English Wikipedia intros (CC BY-SA 4.0)
 Expected: `data/corpus.json`, `data/images/*.jpg`, `data/media/roses-are.wav`, `data/media/cat_dozing.mp4`.
 
 ### Step 4: modular loading (text-only 270M up to full 740M)
-Video: [1:40](https://www.youtube.com/watch?v=VIDEO_ID&t=100s)
+Video: [1:40](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=100s)
 ```bash
 export HF_HUB_OFFLINE=1
 .venv/bin/python measure_configs.py
@@ -55,7 +55,7 @@ Implementation: loads each configuration in a fresh process with `config_kwargs`
 Expected (our box): text only `271.0M` params, about +1.4 GB RAM in float32; full `744.4M`, about +3.3 GB. See `results/configs.log`.
 
 ### Step 5: local text search, keyword baseline, other languages, Matryoshka
-Video: [3:56](https://www.youtube.com/watch?v=VIDEO_ID&t=236s), [5:50](https://www.youtube.com/watch?v=VIDEO_ID&t=350s)
+Video: [3:56](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=236s), [5:50](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=350s)
 ```bash
 .venv/bin/python search_text.py
 ```
@@ -70,7 +70,7 @@ cross_lingual  BM25 hit@1=0.11   EG2 hit@1=1.00
 Scores may differ in the third decimal place. See `results/text_search.log`.
 
 ### Step 6: photos, speech, video and one mixed search box
-Video: [4:39](https://www.youtube.com/watch?v=VIDEO_ID&t=279s)
+Video: [4:39](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=279s)
 ```bash
 .venv/bin/python multimodal.py
 ```
@@ -78,7 +78,7 @@ Expected: text to photo 10/10, photo to article 10/10; `roses-are.wav` best matc
 On a CPU, expect about 3.4 s per photo at the default 280 vision tokens and about 50 s for the 30 s video at 32 frames. See `results/multimodal.log`.
 
 ### Step 7: precision and video frame budget
-Video: [5:17](https://www.youtube.com/watch?v=VIDEO_ID&t=317s), [6:32](https://www.youtube.com/watch?v=VIDEO_ID&t=392s)
+Video: [5:17](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=317s), [6:32](https://www.youtube.com/watch?v=NlwMFVB0ibw&t=392s)
 ```bash
 .venv/bin/python precision_and_video.py
 ```
